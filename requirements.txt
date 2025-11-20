@@ -1,2 +1,5 @@
 pandas
 ipykernel 
+sqlalchemy
+psycopg2-binary
+numpy
