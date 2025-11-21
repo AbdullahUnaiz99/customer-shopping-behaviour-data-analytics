@@ -23,5 +23,10 @@ WHERE shipping_type IN ('Standard','Express')
 GROUP BY shipping_type
 
 --5: Do subscribed customers spend more? Compare average spend and total between subcribers and non-subscribers 
-
-
+SELECT subscription_status,
+COUNT(customer_id) as total_customer,
+ROUND(AVG(purchase_amount_usd::numeric), 2) AS avg_spend,
+ROUND(SUM(purchase_amount_usd::numeric),2) AS total_revenue
+FROM customer
+GROUP BY subscription_status
+ORDER BY total_revenue, avg_spend DESC;
